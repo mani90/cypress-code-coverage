@@ -30,6 +30,11 @@ defaults: &defaults
     - npm run cypress:run
     - echo $TRAVIS_BUILD_DIR
     - cat output.html
+    - curl -s --user 'api:5399531559cc4f1362bdd868c2db51e3-d5e69b0b-af9429da' https://api.mailgun.net/v3/sandboxbde6ba4aad6e4be892414b09322d2c8f.mailgun.org/messages \
+     -F from='Mailgun Sandbox <postmaster@sandboxbde6ba4aad6e4be892414b09322d2c8f.mailgun.org>' \
+     -F to='Mani kandan <mani12316@gmail.com>' \
+     -F subject='Hello Mani kandan' \
+     -F text='Congratulations Mani kandan, you just sent an email with Mailgun!  You are truly awesome!'
     - echo "Done"
 
 notifications:
