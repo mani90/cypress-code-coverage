@@ -27,6 +27,8 @@ defaults: &defaults
     #   ## print all Travis environment variables for debugging
     - $(npm bin)/print-env TRAVIS
     - npm run cypress:run
+    - echo $TRAVIS_BUILD_DIR
+    - echo "Done"
 
 notifications:
   email:
