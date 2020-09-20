@@ -29,6 +29,7 @@ defaults: &defaults
     - cd $TRAVIS_BUILD_DIR
     - npm run cypress:run
     - echo $TRAVIS_BUILD_DIR
+    - cat output.html
     - echo "Done"
 
 notifications:
