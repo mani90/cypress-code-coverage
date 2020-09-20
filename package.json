@@ -17,12 +17,12 @@
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
     "cypress:mochawesome:flag": "cypress run --headless --browser chrome --reporter mochawesome",
-    "cypress:run:integration": "cypress run --headless --browser chrome  --spec $(TRAVIS_BUILD_DIR)/cypress/integration/**.spec.js",
+    "cypress:run:integration": "cypress run --headless --browser chrome  --spec cypress/integration/**.spec.js",
     "cypress:run": "cypress run --headless --browser chrome && npm run merge && npm run generate_mochawesome_report",
-    "merge": "mochawesome-merge $(TRAVIS_BUILD_DIR)/cypress/reports/mochawesome-report/*.json > $(TRAVIS_BUILD_DIR)/cypress/reports/output.json",
-    "generate_mochawesome_report": "marge $(TRAVIS_BUILD_DIR)/cypress/reports/output.json --reportDir ./ --inline",
+    "merge": "mochawesome-merge cypress/reports/mochawesome-report/*.json > cypress/reports/output.json",
+    "generate_mochawesome_report": "marge cypress/reports/output.json --reportDir ./ --inline",
     "delete_reports": "node deleteReports.js",
-    "cypress:unit": "cypress run --spec $(TRAVIS_BUILD_DIR)/cypress/integration/unit/*"
+    "cypress:unit": "cypress run --spec cypress/integration/unit/*"
   },
   "eslintConfig": {
     "extends": "react-app"
