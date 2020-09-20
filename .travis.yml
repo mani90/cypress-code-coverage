@@ -7,6 +7,7 @@ node_js:
 # if using Ubuntu 16 need this library
 # https://github.com/cypress-io/cypress-documentation/pull/1647
 addons:
+  chrome: stable
   apt:
     packages:
     - libgconf-2-4
@@ -30,11 +31,7 @@ defaults: &defaults
     # to kill all background jobs (like "npm start &")
     - kill $(jobs -p) || true
 
-jobs:
-  include:
-    # we have multiple jobs to execute using just a single stage
-    # but we can pass group name via environment variable to Cypress test runner
-    - stage: test
-      env:
-        - STAGE_NAME="1x-electron on Travis CI"
-      <<: *defaults
+notifications:
+  email:
+    on_failure: change
+    on_success: change
