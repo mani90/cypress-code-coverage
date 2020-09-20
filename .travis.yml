@@ -35,3 +35,12 @@ notifications:
   email:
     on_failure: change
     on_success: change
+    
+jobs:
+  include:
+    # we have multiple jobs to execute using just a single stage
+    # but we can pass group name via environment variable to Cypress test runner
+    - stage: test
+      env:
+        - STAGE_NAME="Cypress on Travis CI"
+      <<: *defaults
