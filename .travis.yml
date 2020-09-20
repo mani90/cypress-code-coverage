@@ -25,7 +25,6 @@ defaults: &defaults
   script:
     #   ## print all Travis environment variables for debugging
     - $(npm bin)/print-env TRAVIS
-    - npm run start:i &
     - npm run cypress:run --group $STAGE_NAME
     # after all tests finish running we need
     # to kill all background jobs (like "npm start &")
